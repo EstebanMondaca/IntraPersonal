@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+.tipografia {font-family:Verdana, Geneva, sans-serif; font-size:12px; color:#333}
+.tipografia2 {font-family:Verdana, Geneva, sans-serif; font-size:14px; padding-top:15px; color:#5C7904}
+
+.tipografia3 {font-family:Verdana, Geneva, sans-serif; font-size:24px; padding-top:15px; color:#000000}
+
+.tipografia4 {font-family:Verdana, Geneva, sans-serif; font-size:14px; color:#5C7904;}
+
+.boton {background-color:#A6CE39; border:none; font-size:18px; color:#FFF; padding:15px;}
+
+.fondodot {background:url(linea.png); background-repeat:repeat-x;}
+
+.fondotodo {background:url(Imagen1.png); resize:both; background-position:left;}
+
+.resultado1 {font-family:Verdana, Geneva, sans-serif; font-size:18px; padding-top:15px; color:#000000}
+
+.resultadotitle {font-family:Verdana, Geneva, sans-serif; font-size:18px; padding-top:24px; color:#27B1E6}
