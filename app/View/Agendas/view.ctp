@@ -7,9 +7,15 @@
    <tr>
      <td colspan="2" class="tipografia3">Resultados de la búsqueda</td>
    </tr>
+   <td>
+    <?php 
+    echo $this->Html->link('Volver',array('controller' => 'pages', 'action' => 'index'),array('class' => 'boton'));
+    ?>
+    </td>
  </table>
  <p>
     <br />
+ 
     <br />
  </p>
 
