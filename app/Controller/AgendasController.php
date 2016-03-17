@@ -7,8 +7,12 @@ class AgendasController extends AppController {
 		'limit' => 10,
 		'order' => array('Agenda.id' => 'asc')
 		);
+    
+    public function beforeFilter() {
+        parent::beforeFilter(); 
+        $this->Auth->allow('index', 'view','viewarea');
+    }
 
-	
 	public function index() {
 		$this->Agenda->recursive = 0;
 

@@ -1,7 +1,10 @@
 <?php
 
 class AreasController extends AppController {
-
+	public function beforeFilter() {
+    		$this->Auth->allow('index','view');
+    }
+    
 	public $paginate = array(
 		'limit' => 10,
 		'order' => array('Area.id' => 'asc')

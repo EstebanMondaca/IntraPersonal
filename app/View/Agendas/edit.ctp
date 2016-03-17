@@ -31,8 +31,8 @@
 	echo $this->Form->input('correo');
 	echo $this->Form->input('piso', array(
 		'options'=>array(
-			'piso8' => 'Piso 8',
-			'piso14'=>'Piso 14'),
+			'piso 8' => 'Piso 8',
+			'piso 14'=>'Piso 14'),
 		'empty' =>'(Seleccione)'));
 	echo $this->Form->input('id', array('type'=>'hidden'));
 	echo $this->Form->end('Guardada Persona!!');
