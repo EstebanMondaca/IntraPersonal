@@ -1,3 +1,6 @@
+Versión de CakePHP 2.x
+
+
 # CakePHP
 
 [![Latest Stable Version](https://poser.pugx.org/cakephp/cakephp/v/stable.svg)](https://packagist.org/packages/cakephp/cakephp)
