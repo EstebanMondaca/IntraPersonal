@@ -1,6 +1,9 @@
 <?php
 
 class AreasController extends AppController {
+	public $helpers = array('Html', 'Form');
+	public $components = array('Session');
+	
 	public function beforeFilter() {
     		$this->Auth->allow('index','view');
     }
