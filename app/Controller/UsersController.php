@@ -19,7 +19,7 @@ class UsersController extends AppController {
 	        if ($this->Auth->login()) {
 	            return $this->redirect($this->Auth->redirectUrl());
 	        }
-	        $this->Flash->error(__('Invalid username or password, try again'));
+	        $this->Flash->error(__('Nombre Invalido o pasword incorrecta, intente nuevamente'));
     	}
 	}
 
@@ -30,7 +30,7 @@ class UsersController extends AppController {
     public function view($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('Usuario invalido'));
         }
         $this->set('user', $this->User->findById($id));
     }
@@ -39,7 +39,7 @@ class UsersController extends AppController {
         if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved'));
+                $this->Flash->success(__('El Usuario a sido guardado correctamente'));
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(
@@ -51,11 +51,11 @@ class UsersController extends AppController {
     public function edit($id = null) {
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('Usuario invalido'));
         }
         if ($this->request->is('post') || $this->request->is('put')) {
             if ($this->User->save($this->request->data)) {
-                $this->Flash->success(__('The user has been saved'));
+                $this->Flash->success(__('El usuario a sigo guardado'));
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(
