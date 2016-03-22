@@ -43,7 +43,7 @@ class UsersController extends AppController {
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(
-                __('The user could not be saved. Please, try again.')
+                __('El usuario no puede guardarse. Por favor, inténtelo de nuevo.')
             );
         }
     }
@@ -59,7 +59,7 @@ class UsersController extends AppController {
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(
-                __('The user could not be saved. Please, try again.')
+                __('El usuario no puede guardarse. Por favor, inténtelo de nuevo.')
             );
         } else {
             $this->request->data = $this->User->findById($id);
@@ -75,13 +75,13 @@ class UsersController extends AppController {
 
         $this->User->id = $id;
         if (!$this->User->exists()) {
-            throw new NotFoundException(__('Invalid user'));
+            throw new NotFoundException(__('Usuario Invalido'));
         }
         if ($this->User->delete()) {
-            $this->Flash->success(__('User deleted'));
+            $this->Flash->success(__('Usuario Borrado'));
             return $this->redirect(array('action' => 'index'));
         }
-        $this->Flash->error(__('User was not deleted'));
+        $this->Flash->error(__('No se ah eliminado el usuario'));
         return $this->redirect(array('action' => 'index'));
     }
 

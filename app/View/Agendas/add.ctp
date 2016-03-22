@@ -1,7 +1,7 @@
 <h3>Agregar Persona</h3>
 
 <?php
-	echo $this->Form->create('Agenda');
+	echo $this->Form->create('Agenda',array('type'=>'file'));
 	echo $this->Form->input('nombre',array('label'=>'Nombre'));
 	echo $this->Form->input('apellido',array('label'=>'Apellidos'));
 	echo $this->Form->input('anexo',array('label'=>'Anexo'));
@@ -11,7 +11,7 @@
 		'type' => 'date',
 		'dateFormat' => 'DMY',
 		'minYear' => date('Y') - 70,
-		'maxYear' => date('Y') ,));
+		'maxYear' => date('Y')));
 	echo $this->Form->input('rut',array('label'=>'RUT'));
 	echo $this->Form->input('sexo', array(
 		'options'=>array(
@@ -23,13 +23,9 @@
 		'type' => 'date',
 		'dateFormat' => 'DMY',
 		'minYear' => date('Y') - 70,
-		'maxYear' => date('Y') ,));
-	echo $this->Form->input('cargo',array('label'=>'Cargo'));
-
-	echo $this->Form->input('image_nombre',array('type'=>'file'));
-	
-	echo $this->Form->input('archivo',array('label'=>'Archivo'));
-	
+		'maxYear' => date('Y')));
+	echo $this->Form->input('cargo',array('label'=>'Cargo'));	
+	echo $this->Form->input('imagen_nombre',array('type'=>'file'));
 	echo $this->Form->input('correo');
 	echo $this->Form->input('piso', array(
 		'options'=>array(

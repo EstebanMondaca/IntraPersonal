@@ -1,7 +1,12 @@
 <?php
+
+App::uses('AppController', 'Controller');
+
+
 class AgendasController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
+
 
 	public $paginate = array(
 		'limit' => 10,
@@ -31,10 +36,44 @@ class AgendasController extends AppController {
 
 	public function add() {
 		if($this->request->is('post')):
-			if($this->Agenda->save($this->request->data)):
-				$this->Session->setFlash('Guardar Persona');
-				$this->redirect(array('action'=>'index'));
-			endif;
+
+		//debug($this->data);
+
+			if ($this->request->data['Agenda']['imagen_nombre']){
+				$file = new File($this->request->data['Agenda']['imagen_nombre']['tmp_name'], true, 0644);
+				$path_parts = pathinfo($this->data['Agenda']['imagen_nombre']['name']);
+				$ext = $path_parts['extension'];
+
+				if ($ext != 'jpg' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'png') {
+					$this->Session->setFlash('Solo puedes subir imagenes.');
+					$this->render();
+				} else {
+					$date = $this->data['Agenda']['imagen_nombre']['name'];
+					$filename =$date;
+					
+					$data = $file->read();
+					$file->close();
+					
+					$file = new File(WWW_ROOT.'/img/'.$filename,true);
+					$file->write($data);
+					$file->close();
+				}
+
+			}
+			//Fin subir imagenes
+
+			//	debug($this->request);
+
+			$this->request->data['Agenda']['imagen_nombre'] = $this->request->data['Agenda']['imagen_nombre']['name'];
+			$this->Agenda->create();
+			if($this->Agenda->save($this->request->data)) {
+				$this->Session->setFlash(__('La persona se ah guardado'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The person could not be saved. Please, try again.'));
+			}
+	 		
+			
 		endif;
 
 		$areas = $this->Agenda->Area->find('list');
@@ -49,8 +88,33 @@ class AgendasController extends AppController {
 		$agenda = $this->Agenda->find('list');
 		$this->set(compact('agendas','areas'));
 
+		
+		debug($this->request);
+
 		if ($this->request->is('get')) {
 			$this->request->data = $this->Agenda->read();
+			//Fin subir imagenes
+			if ($this->request->data['Agenda']['imagen_nombre']){
+				$file = new File($this->request->data['Agenda']['imagen_nombre']['tmp_name'], true, 0644);
+				$path_parts = pathinfo($this->data['Agenda']['imagen_nombre']['name']);
+				$ext = $path_parts['extension'];
+
+				if ($ext != 'jpg' && $ext != 'jpeg' && $ext != 'gif' && $ext != 'png') {
+					$this->Session->setFlash('Solo puedes subir imagenes.');
+					$this->render();
+				} else {
+					$date = $this->data['Agenda']['imagen_nombre']['name'];
+					$filename =$date;
+					
+					$data = $file->read();
+					$file->close();
+					
+					$file = new File(WWW_ROOT.'/img/'.$filename,true);
+					$file->write($data);
+					$file->close();
+				}
+
+		}
 		}
 		else { //si no es get
 			if ($this->Agenda->save($this->request->data)) 
@@ -64,12 +128,6 @@ class AgendasController extends AppController {
 			
 		}
 	
-	}
-
-	public function viewAll(){
-		$this->Agenda->recursive = 0;
-		$params = array('order' => 'name desc');
-		$this->set('agendas', $this->Agenda->find('all'));
 	}
 
 	public function view($condicion = null){

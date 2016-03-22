@@ -8,19 +8,19 @@ class User extends AppModel {
         'username' => array(
             'required' => array(
                 'rule' => 'notBlank',
-                'message' => 'A username is required'
+                'message' => 'Se requiere un nombre de usuario'
             )
         ),
         'password' => array(
             'required' => array(
                 'rule' => 'notBlank',
-                'message' => 'A password is required'
+                'message' => 'Se requiere una contraseña'
             )
         ),
         'role' => array(
             'valid' => array(
                 'rule' => array('inList', array('admin', 'author')),
-                'message' => 'Please enter a valid role',
+                'message' => 'Por favor, introduzca un rol',
                 'allowEmpty' => false
             )
         )

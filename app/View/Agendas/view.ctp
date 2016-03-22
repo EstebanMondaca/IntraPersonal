@@ -29,7 +29,7 @@
         <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
           <td width="200" height="200" align="right" valign="middle">
-            <?php echo $this->Html->image('c001.png', array('alt' => 'CakePHP', 'class' =>'foto'));?>
+            <?php echo $this->Html->image('/img/'.$value['Agenda']['imagen_nombre'], array('alt' => 'ChileValora', 'class' =>'foto'));?>
             <br /></td>
           <td height="220" align="center">
             
