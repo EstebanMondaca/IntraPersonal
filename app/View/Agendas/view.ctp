@@ -9,7 +9,7 @@
    </tr>
    <td>
     <?php 
-    echo $this->Html->link('Volver',array('controller' => 'pages', 'action' => 'index'),array('class' => 'boton'));
+    echo $this->Html->link('Volver',array('controller' => 'pages', 'action' => 'index'));
     ?>
     </td>
  </table>
@@ -26,14 +26,18 @@
      </tr>
      <tr>
       <td align="center" valign="top">
-        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0">
+        <table width="700" border="0" align="center" cellpadding="0" cellspacing="0"  style="
+    margin-top: 20px;
+    margin-bottom: 20px;
+">
         <tr>
           <td width="200" height="200" align="right" valign="middle">
             <?php echo $this->Html->image('/img/'.$value['Agenda']['imagen_nombre'], array('alt' => 'ChileValora', 'class' =>'foto'));?>
             <br /></td>
           <td height="220" align="center">
             
-            <table width="400" border="0" cellspacing="0" cellpadding="0">
+            <table width="400" border="0" cellspacing="0" cellpadding="0"
+>
               <tr>
                 <td height="40" colspan="2" class="resultado1"> <?php echo $value['Agenda']['nombre'].' '.$value['Agenda']['apellido'] ;?> </td>
               </tr>
@@ -65,6 +69,9 @@
 
         </td>
         </tr>
+
+        <hr>
+
       </table>
     </td>
     </tr>

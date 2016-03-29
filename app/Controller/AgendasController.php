@@ -37,7 +37,7 @@ class AgendasController extends AppController {
 	public function add() {
 		if($this->request->is('post')):
 
-		//debug($this->data);
+		
 
 			if ($this->request->data['Agenda']['imagen_nombre']){
 				$file = new File($this->request->data['Agenda']['imagen_nombre']['tmp_name'], true, 0644);
@@ -83,16 +83,13 @@ class AgendasController extends AppController {
 
 	public function edit($id = null){
 		$this->Agenda->id = $id;
-
-		$areas = $this->Agenda->Area->find('list');
-		$agenda = $this->Agenda->find('list');
-		$this->set(compact('agendas','areas'));
-
 		
-		debug($this->request);
-
 		if ($this->request->is('get')) {
 			$this->request->data = $this->Agenda->read();
+			
+		}
+		else { //si no es get
+
 			//Fin subir imagenes
 			if ($this->request->data['Agenda']['imagen_nombre']){
 				$file = new File($this->request->data['Agenda']['imagen_nombre']['tmp_name'], true, 0644);
@@ -113,12 +110,25 @@ class AgendasController extends AppController {
 					$file->write($data);
 					$file->close();
 				}
-
-		}
-		}
-		else { //si no es get
+			}
+			$this->request->data = array('id' => $id,
+										'nombre'=> $this->data['Agenda']['nombre'],
+										'apellido'=> $this->data['Agenda']['apellido'],
+										'anexo'=> $this->data['Agenda']['anexo'],
+										'area_id'=> $this->data['Agenda']['area_id'],
+										'fecha_nacimiento'=> $this->data['Agenda']['fecha_nacimiento'],
+										'rut'=> $this->data['Agenda']['rut'],
+										'sexo'=> $this->data['Agenda']['sexo'],
+										'fecha_ingreso'=> $this->data['Agenda']['fecha_ingreso'],
+										'cargo'=> $this->data['Agenda']['cargo'],
+										'piso'=> $this->data['Agenda']['piso'],
+										'correo'=> $this->data['Agenda']['correo'],
+										'imagen_nombre'=> $this->data['Agenda']['imagen_nombre']['name'],
+									);
 			if ($this->Agenda->save($this->request->data)) 
 			{
+				//debug($this->request->data);
+				//exit();
 				$this->Session->setFlash('Persona Guardada');
 				$this->redirect(array('action' => 'index' ));
 			}
@@ -127,6 +137,13 @@ class AgendasController extends AppController {
 			}
 			
 		}
+
+	
+	
+
+	$areas = $this->Agenda->Area->find('list');
+	$agenda = $this->Agenda->find('list');
+	$this->set(compact('agendas','areas'));
 	
 	}
 

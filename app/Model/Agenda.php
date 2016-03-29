@@ -15,10 +15,9 @@ class Agenda extends AppModel {
 
 // esta causando error el validate
 	public $validate = array(
-			'nombre' => array('rule' => 'notBlank',
-			'apellido' => array('rule' => 'notBlank'
-				)
-		));
+			'nombre' => array('rule' => 'notBlank'),
+			'apellido' => array('rule' => 'notBlank')
+		);
 
 
 }

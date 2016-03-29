@@ -2,6 +2,7 @@
 
 <?php
 	echo $this->Form->create('Agenda',array('type'=>'file'));
+	
 	echo $this->Form->input('nombre',array('label'=>'Nombre'));
 	echo $this->Form->input('apellido',array('label'=>'Apellidos'));
 	echo $this->Form->input('anexo',array('label'=>'Anexo','type'=> 'text'));
@@ -25,7 +26,8 @@
 		'minYear' => date('Y') - 70,
 		'maxYear' => date('Y')));
 	echo $this->Form->input('cargo',array('label'=>'Cargo'));
-	echo $this->Form->input('imagen_nombre',array('type'=>'file'));
+	
+	//echo $this->Form->file('imagen_nombre.[name]');
 	echo $this->Form->input('correo');
 	echo $this->Form->input('piso', array(
 		'options'=>array(
@@ -33,6 +35,6 @@
 			'piso 14'=>'Piso 14'),
 		'empty' =>'(Seleccione)'));
 	echo $this->Form->input('id', array('type'=>'hidden'));
-	
+	echo $this->Form->input('imagen_nombre', array('type'=>'file'));
 	echo $this->Form->end('Guardada Persona!!');
 ?>
