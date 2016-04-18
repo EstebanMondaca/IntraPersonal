@@ -7,20 +7,26 @@ class AgendasController extends AppController {
 	public $helpers = array('Html', 'Form');
 	public $components = array('Session');
 
-
 	public $paginate = array(
 		'limit' => 10,
 		'order' => array('Agenda.id' => 'asc')
 		);
-    
+
+	public function noPaginar()
+ 	{
+        $this->paginate['limit'] = null;
+    }
+
+
     public function beforeFilter() {
         parent::beforeFilter(); 
         $this->Auth->allow('index', 'view','viewarea');
     }
 
 	public function index() {
-		$this->Agenda->recursive = 0;
 
+	
+		$this->Agenda->recursive = 0;
 		// $params = array('order' => 'name desc');
 		$agendas = $this->paginate();
 		if($this->request->is('request')):
@@ -106,11 +112,12 @@ class AgendasController extends AppController {
 					$data = $file->read();
 					$file->close();
 					
-					$file = new File(WWW_ROOT.'/img/'.$filename,true);
+					$file = new File(WWW_ROOT.'/img/foto/'.$filename,true);
 					$file->write($data);
 					$file->close();
 				}
 			}
+
 			$this->request->data = array('id' => $id,
 										'nombre'=> $this->data['Agenda']['nombre'],
 										'apellido'=> $this->data['Agenda']['apellido'],
@@ -148,15 +155,20 @@ class AgendasController extends AppController {
 	}
 
 	public function view($condicion = null){
+
+		$this->noPaginar();
+
 		if (is_null($condicion)) {
 			$this->Agenda->recursive = 0;
 			$params = array('order' => 'name desc');
 			$this->set('agendas', $this->Agenda->find('all'));
+
 		}
 		else{
 			$params = array('order' => 'name desc');
 			$this->set('agendas', $this->Agenda->find('all', array(
-        	'conditions' => array('Agenda.piso' => $condicion))));		
+        	'conditions' => array('Agenda.piso' => $condicion))));
+
 		}
 	}
 

@@ -32,7 +32,7 @@
 ">
         <tr>
           <td width="200" height="200" align="right" valign="middle">
-            <?php echo $this->Html->image('/img/'.$value['Agenda']['imagen_nombre'], array('alt' => 'ChileValora', 'class' =>'foto'));?>
+            <?php echo $this->Html->image('/img/foto/'.$value['Agenda']['imagen_nombre'], array('alt' => 'ChileValora', 'class' =>'foto'));?>
             <br /></td>
           <td height="220" align="center">
             
@@ -77,5 +77,8 @@
     </tr>
 <?php } ?>      
 </table>
+
+
+
 
 <p>&nbsp;</p>

@@ -1,5 +1,5 @@
 <div class='index'>
-	<h2>Areas</h2>
+	<h2>Administrador de áreas</h2>
 
 	<?php echo $this->Html->link('Agregar Area',array('action'=>'add')) 
 	?>

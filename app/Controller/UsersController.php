@@ -81,7 +81,7 @@ class UsersController extends AppController {
             $this->Flash->success(__('Usuario Borrado'));
             return $this->redirect(array('action' => 'index'));
         }
-        $this->Flash->error(__('No se ah eliminado el usuario'));
+        $this->Flash->error(__('No se a eliminado el usuario'));
         return $this->redirect(array('action' => 'index'));
     }
 

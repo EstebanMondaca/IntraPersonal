@@ -28,7 +28,7 @@ class AreasController extends AppController {
 			
 		if($this->request->is('post')):
 			if($this->Area->save($this->request->data)):
-				$this->Session->setFlash('El area ha sido guardado');
+				$this->Session->setFlash('El área a sido guardado');
 				$this->redirect(array('action'=>'index'));
 			endif;
 		endif;
@@ -42,7 +42,7 @@ class AreasController extends AppController {
 		else { //si no es get
 			if ($this->Area->save($this->request->data)) 
 			{
-				$this->Session->setFlash('Area Guardada');
+				$this->Session->setFlash('Área Guardada');
 				$this->redirect(array('action' => 'index' ));
 			}
 			else{
@@ -57,7 +57,7 @@ class AreasController extends AppController {
 		}
 		else{
 			if ($this->Area->delete($id)) {
-				$this->Session->setFlash('Area Eliminada');
+				$this->Session->setFlash('Área Eliminada');
 				$this->redirect(array('action'=>'index'));
 			}
 		}

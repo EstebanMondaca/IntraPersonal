@@ -4,18 +4,22 @@
 ?>
 
 <body>
-<!-- <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td height="100" align="left" valign="middle" bgcolor="#A6CE39"><table width="400" border="0" cellspacing="1" cellpadding="0">
+    <td height="50" align="center" valign="middle" ><table width="400" border="0" cellspacing="1" cellpadding="0">
       <tr>
         <td width="30">&nbsp;</td>
-        <td width="370" align="left" valign="middle"><img src="img/logo_chv.png" alt="" width="259" height="75" /></td>
+        <td width="370" align="center" valign="middle"> 
+        <?php echo $this->Html->link('Administrar Áreas',array('controller'=>'areas',
+          'action' => 'index')); ?> </td>
+          <td width="370" align="center" valign="middle"> 
+        <?php echo $this->Html->link('Administrar Información',array('controller'=>'agendas',
+          'action' => 'index')); ?> </td>
       </tr>
     </table></td>
   </tr>
-</table> -->
- <p><br />
- </p>
+</table>
+ <p> </p>
 <table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
    <tr>
 
@@ -34,13 +38,13 @@
           <td height="140" align="center">
 			<?php echo $this->Html->image("piso8_100.png", array(
    				 "alt" => "",
-  				  'url' => array('controller' => 'agendas', 'action' => 'view', 'piso8')));?>
+  				  'url' => array('controller' => 'agendas', 'action' => 'view', 'piso 8')));?>
           	<br />
           </td>
           	<td align="center">
           	<?php echo $this->Html->image("piso14_100.png", array(
    				 "alt" => "",
-  				  'url' => array('controller' => 'agendas', 'action' => 'view', 'piso14')));
+  				  'url' => array('controller' => 'agendas', 'action' => 'view', 'piso 14')));
   			?><br />
   			</td>
           <td align="center">
