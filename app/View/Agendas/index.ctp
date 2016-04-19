@@ -32,10 +32,10 @@
 				<?php echo $this->Html->link('Editar', array('action'=>'edit',$value['Agenda']['id'])); 
 				?></br>
 
-				<?php echo $this->Html->link('Ver Detalle de '.$value['Area']['nombre'],
+<!-- 				<?php echo $this->Html->link('Ver Detalle de '.$value['Area']['nombre'],
 					array('controller'=>'areas',
 					'action' => 'view', $value['Area']['id'])); ?></br>
-
+ -->
 				<?php echo $this->Form->postLink(' Eliminar', 
 					array('action'=>'delete', $value['Agenda']['id']),
 					array('confirm'=>'Realmente quiere eliminar a' . $value['Agenda']['nombre']. '?' )
