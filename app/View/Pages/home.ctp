@@ -10,11 +10,9 @@
       <tr>
         <td width="30">&nbsp;</td>
         <td width="370" align="center" valign="middle"> 
-        <?php echo $this->Html->link('Administrar Áreas',array('controller'=>'areas',
-          'action' => 'index')); ?> </td>
-          <td width="370" align="center" valign="middle"> 
-        <?php echo $this->Html->link('Administrar Información',array('controller'=>'agendas',
-          'action' => 'index')); ?> </td>
+        <?php echo $this->Html->link('Administrar',array('controller'=>'pages',
+          'action' => 'admin')); ?> </td>
+          
       </tr>
     </table></td>
   </tr>

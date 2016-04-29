@@ -46,8 +46,14 @@ class PagesController extends AppController {
  */
  	public function beforeFilter() {
     		$this->Auth->allow('index','view','display');
+    		$this->Auth->deny(array('controller'=>'pages',
+          'action' => 'admin'));
+
     }
 
+	public function admin() {
+    		$this->Auth->authorize = false;
+    }
 	public function display() {
 		$path = func_get_args();
 
